@@ -1,0 +1,638 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Ubuntu", sans-serif;
+  background-color: hsl(217, 100%, 97%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 95%;
+  max-width: 95rem;
+  min-height: min(58rem, 95vh);
+  padding: 1.6rem;
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: 1.3fr 3fr;
+  border-radius: 10px;
+  box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.1);
+}
+
+.sidebar {
+  padding: 4rem 3rem;
+  background-image: url("./assets/images/bg-sidebar-desktop.svg");
+  background-size: cover;
+  background-position: center bottom;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.sidebar-step {
+  display: flex;
+  gap: 1.6rem;
+  margin-bottom: 3.5rem;
+  align-items: center;
+}
+
+.btn-step {
+  width: 4rem;
+  height: 4rem;
+  font-size: 1.8rem;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  color: #fff;
+  outline: none;
+  font-family: inherit;
+  font-weight: 500;
+}
+
+.btn-step-active {
+  border: none;
+  color: hsl(213, 96%, 18%);
+  background-color: hsl(206, 94%, 87%);
+}
+
+.step-info {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.step-num {
+  font-size: 1.4rem;
+  color: hsl(228, 100%, 84%);
+}
+
+.step-text {
+  margin-top: 3px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.step-body {
+  padding: 3.6rem 9.6rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.text-body {
+  margin-bottom: 4rem;
+}
+
+.text-body h2 {
+  font-size: 3.2rem;
+  color: hsl(213, 96%, 18%);
+  margin-bottom: 1.2rem;
+}
+
+.text-body p {
+  font-size: 1.6rem;
+  color: hsl(231, 11%, 63%);
+}
+
+.input-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+}
+
+.input-label label {
+  color: hsl(213, 83%, 30%);
+}
+
+.input-label span {
+  font-weight: 700;
+  color: hsl(354, 84%, 57%);
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.step-form-group {
+  margin-bottom: 2rem;
+}
+
+.step-form-group:last-child {
+  margin-bottom: 4rem;
+}
+
+.step-form-group input {
+  font-size: 1.6rem;
+  font-family: inherit;
+  width: 100%;
+  padding: 1.3rem 1.6rem;
+  border: 1px solid hsl(229, 24%, 87%);
+  outline: none;
+  border-radius: 0.8rem;
+  color: hsl(213, 96%, 18%);
+  font-weight: 500;
+}
+
+.step-form-group input:focus {
+  outline: 1px solid hsl(243, 100%, 62%);
+}
+
+.step-form-group input::placeholder {
+  font-weight: 500;
+  color: hsl(231, 11%, 63%);
+}
+
+.step-form-group input[type="number"]::-webkit-outer-spin-button,
+.step-form-group input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.form-err span {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: fill;
+}
+
+.form-err input {
+  border: 1px solid hsl(354, 84%, 57%);
+}
+
+.step-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.btn {
+  font-family: inherit;
+  cursor: pointer;
+  font-weight: 700;
+  border: none;
+  outline: none;
+  transition: background-color 0.2s;
+}
+
+.btn-back {
+  font-size: 1.6rem;
+  background-color: transparent;
+  color: hsl(231, 11%, 63%);
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+.btn-back-show {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: all;
+}
+
+.btn-back:hover {
+  color: hsl(213, 96%, 18%);
+}
+
+.btn-next {
+  font-size: 1.4rem;
+  padding: 1.2rem 2.2rem;
+  border-radius: 7px;
+  color: hsl(217, 100%, 97%);
+  background-color: hsl(213, 96%, 18%);
+}
+
+.btn-next-hide {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.btn-next:hover {
+  background-color: hsl(214, 72%, 32%);
+}
+
+.btn-confirm {
+  background-color: hsl(243, 100%, 62%);
+}
+.btn-confirm:hover {
+  background-color: hsl(244, 98%, 77%);
+}
+
+/* ////////////////////////////////////// */
+/* STEP 2 */
+
+.plans {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.plan-err {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: hsl(354, 84%, 57%);
+  font-size: 1.6rem;
+  font-weight: 500;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2;
+}
+
+.plan-err-show {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: all;
+}
+
+.plan {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.6rem 1.2rem;
+  border: 1px solid hsl(229, 24%, 87%);
+  border-radius: 7px;
+  cursor: pointer;
+  transition: border 0.2s;
+}
+
+.plan:hover {
+  border: 1px solid hsl(243, 100%, 62%);
+}
+
+/* with js */
+.plan-active {
+  background-color: hsl(230, 75%, 98%);
+  border: 1px solid hsl(243, 100%, 62%);
+}
+
+.plan-img {
+  margin-bottom: 4rem;
+}
+
+.plan-name {
+  font-size: 1.6rem;
+  color: hsl(213, 100%, 22%);
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+}
+
+.plan-price {
+  font-size: 1.5rem;
+  color: hsl(231, 11%, 63%);
+}
+
+.plan-free {
+  font-weight: 500;
+  margin-top: 0.9rem;
+  font-size: 1.3rem;
+  color: hsl(213, 100%, 29%);
+  display: none;
+}
+
+/* With js */
+.plan-yearly .plan-free {
+  display: block;
+}
+
+.plan-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f8f9fe;
+}
+
+.toggle-check {
+  display: none;
+}
+
+.toggle-label {
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  background-color: hsl(213, 96%, 18%);
+  border-radius: 20px;
+  position: relative;
+  cursor: pointer;
+  margin-inline: 2rem;
+}
+
+.toggle-circle {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 14px;
+  height: 14px;
+  background-color: #fff;
+  border-radius: 50%;
+  animation: toggleOff 0.3s linear forwards;
+}
+
+.plan-type {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: hsl(231, 11%, 63%);
+}
+
+/* with js */
+.plan-type-active {
+  color: hsl(213, 100%, 22%);
+}
+
+.toggle-check:checked + .toggle-label .toggle-circle {
+  animation: toggleOn 0.3s linear forwards;
+}
+
+@keyframes toggleOn {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(20px);
+  }
+}
+@keyframes toggleOff {
+  0% {
+    transform: translateX(20px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* //////////////////////////////////////// */
+/* STEP 3 */
+
+.add-on-label {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid hsl(229, 24%, 87%);
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.add-on-label:hover {
+  border-color: hsl(243, 100%, 62%);
+}
+
+/* with js */
+.add-on-label-active {
+  border-color: hsl(243, 100%, 62%);
+  background-color: #f8f9fe;
+}
+
+.add-on-label input[type="checkbox"] {
+  width: 2rem;
+  height: 2rem;
+}
+
+.add-on-text p {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: hsl(213, 96%, 18%);
+  margin-bottom: 5px;
+}
+
+.add-on-text span {
+  color: hsl(231, 11%, 63%);
+  font-size: 1.4rem;
+}
+
+.add-on-price {
+  font-size: 1.4rem;
+  margin-left: auto;
+  color: hsl(243, 100%, 62%);
+}
+
+/* //////////////////////////// */
+/* STEP 4 */
+
+.summary {
+  padding: 3rem;
+  background-color: #f8f9fe;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.plan-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.plan-details-with-addons {
+  padding-bottom: 2.8rem;
+  margin-bottom: 1.8rem;
+  border-bottom: 1px solid hsl(229, 24%, 87%);
+}
+
+.plan-text {
+  font-size: 1.6rem;
+  font-weight: 700;
+
+  color: hsl(213, 100%, 29%);
+  margin-bottom: 6px;
+}
+.plan-change {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: hsl(231, 11%, 63%);
+  text-decoration: underline;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.plan-change:hover {
+  color: hsl(243, 100%, 62%);
+}
+
+.summary-plan-price {
+  font-weight: 700;
+  color: hsl(213, 96%, 18%);
+  font-size: 1.6rem;
+}
+
+.add-on-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-on-details p {
+  font-size: 1.5rem;
+  color: hsl(231, 11%, 63%);
+}
+
+.add-on-details span {
+  font-size: 1.5rem;
+  color: hsl(213, 100%, 25%);
+}
+
+.add-on-details:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 2.2rem;
+}
+
+.total p {
+  font-size: 1.5rem;
+  color: hsl(231, 11%, 63%);
+}
+
+.total-price {
+  font-size: 2rem;
+  color: hsl(243, 100%, 62%);
+  font-weight: 700;
+}
+
+/* /////////////////////////////////////// */
+/* STEP 5 */
+.step-thanks {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  text-align: center;
+  gap: 3rem;
+}
+
+.text-thanks h2 {
+  margin-bottom: 1.8rem;
+}
+
+.text-thanks p {
+  letter-spacing: 0.2px;
+  line-height: 1.6;
+}
+
+/* ///////////////// */
+.step-hidden {
+  display: none;
+}
+
+/* ////////////////////////////////// */
+/* MEDIA QUERIES */
+
+@media (max-width: 61em) {
+  html {
+    font-size: 56.25%;
+  }
+  .container {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .step-body {
+    padding: 3rem 6rem 1rem;
+  }
+
+  .text-body {
+    margin-bottom: 3rem;
+  }
+
+  .text-body h2 {
+    margin-bottom: 0.8rem;
+  }
+}
+
+@media (max-width: 40em) {
+  body {
+    display: block;
+  }
+  .container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+  .sidebar {
+    display: flex;
+    justify-content: center;
+    border-radius: 0;
+    background-image: url("./assets/images/bg-sidebar-mobile.svg");
+    background-position: center;
+    padding-bottom: 12rem;
+  }
+
+  .btn-step {
+    width: 5rem;
+    height: 5rem;
+  }
+  .sidebar-step {
+    margin-bottom: 0;
+  }
+  .sidebar-step:not(:last-child) {
+    margin-right: 3rem;
+  }
+
+  .step-info {
+    display: none;
+  }
+
+  .step-body {
+    flex-grow: 1;
+    padding: 0;
+    background-color: #eef5ff;
+  }
+
+  .step-content {
+    padding: 4rem 3rem;
+    margin-inline: 2rem;
+    margin-top: -8rem;
+    margin-bottom: 8rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.1);
+  }
+  .step-form-group:last-child {
+    margin-bottom: 0;
+  }
+  .step-controls {
+    padding: 2rem;
+    background-color: #fff;
+  }
+
+  .step-thanks {
+    padding: 9rem 3rem;
+  }
+
+  .text-thanks h2 {
+    margin-bottom: 1.6rem;
+  }
+
+  .plans {
+    grid-template-columns: 1fr;
+  }
+
+  .plan {
+    flex-direction: row;
+    gap: 2rem;
+    align-items: flex-start;
+    padding-bottom: 2rem;
+  }
+
+  .plan-img {
+    margin-bottom: 0;
+  }
+}
