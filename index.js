@@ -16,6 +16,7 @@ const addOnFormEl = document.querySelector(".add-ons-form");
 const addOnLabelEls = addOnFormEl.querySelectorAll(".add-on-label");
 const addOnPricesEl = document.querySelectorAll("span[data-addon-price]");
 const summaryEl = document.querySelector(".summary");
+const totalTextEl = document.querySelector(".total p");
 const sumTotalPriceEl = document.querySelector(".total-price");
 const planChangeBtn = summaryEl.querySelector(".plan-change");
 
@@ -198,6 +199,9 @@ const formSummary = function () {
       console.log("hey");
       prevStep(2);
     });
+  totalTextEl.textContent = `Total (per ${
+    userSelectOptions.planType === "Monthly" ? "month" : "year"
+  })`;
   sumTotalPriceEl.textContent = `+$${calcTotalPrice()}/${
     userSelectOptions.planType === "Monthly" ? "mo" : "yr"
   }`;
